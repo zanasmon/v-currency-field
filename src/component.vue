@@ -1,5 +1,6 @@
 <template lang="html">
-  <input type="tel"
+  <input v-bind="$attrs"
+         type="tel"
          :value="formattedValue"
          @change="change"
          v-money="{precision, decimal, thousands, prefix, suffix, allowBlank, min, max}"
