@@ -3,7 +3,9 @@
          :value="formattedValue"
          @change="change"
          v-money="{precision, decimal, thousands, prefix, suffix, allowBlank, min, max}"
-         class="v-money" />
+         :class="class"
+         :placeholder="placeholder"
+         @blur="$emit('blur')" />
 </template>
 
 <script>
@@ -18,6 +20,14 @@ export default {
       required: true,
       type: [Number, String],
       default: 0
+    },
+    class: {
+      type: String,
+      default: 'v-money'
+    },
+    placeholder: {
+      type: String,
+      default: ''
     },
     masked: {
       type: Boolean,
