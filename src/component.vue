@@ -3,8 +3,10 @@
          :value="formattedValue"
          @change="change"
          v-money="{precision, decimal, thousands, prefix, suffix, allowBlank, min, max}"
-         :class="class"
+         :class="className"
          :placeholder="placeholder"
+         :id="id"
+         :maxlength="maxlength"
          @blur="$emit('blur')" />
 </template>
 
@@ -28,6 +30,12 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    id: {
+      type: String
+    },
+    maxlength: {
+      type: Number
     },
     masked: {
       type: Boolean,
@@ -68,6 +76,12 @@ export default {
   },
 
   directives: {money},
+
+  computed: {
+    className() {
+      return this.class;
+    }
+  },
 
   data () {
     return {
