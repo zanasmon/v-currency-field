@@ -21,7 +21,7 @@ function format (input, opt = defaults) {
   var integer = parts[0]
   var decimal = parts[1]
   integer = addThousandSeparator(integer, opt.thousands)
-  return opt.prefix + negative + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
+  return negative + joinIntegerAndDecimal(integer, decimal, opt.decimal)
 }
 
 function unformat (input, precision) {

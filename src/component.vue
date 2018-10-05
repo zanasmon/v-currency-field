@@ -1,5 +1,6 @@
 <template lang="html">
   <v-text-field
+         ref="textfield"
          :class="`${classes}`"
          :value="formattedValue"
          :prefix="prefix"
@@ -131,6 +132,9 @@ export default {
         var formatted = format(newValue, this.$props)
         if (formatted !== this.formattedValue) {
           this.formattedValue = formatted
+          if (this.$refs.textfield) {
+            this.$refs.textfield.$refs.input.value = this.formattedValue;
+          }
         }
       }
     }
