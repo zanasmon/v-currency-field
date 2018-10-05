@@ -1,50 +1,36 @@
-# v-money Mask for Vue.js
-
-![The Mask Money](https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif)
+# Currency Mask for Vuetify
 
 ## Features
 
-- Lightweight (<2KB gzipped)
-- Dependency free
-- Mobile support
-- Component or Directive flavors
-- Accept copy/paste
-- Editable
-- Min / Max Limits
-
-For other types of mask, use [vue-the-mask](https://vuejs-tips.github.io/vue-the-mask)
+- All features from v-money as v-text-field of vuetify.
 
 ## Usage
 
-### A. Globally
+### Globally
 
 ```js
 import Vue from 'vue'
-import money from 'v-money'
+import currency from 'v-currency-field'
 
-// register directive v-money and component <money>
-Vue.use(money, {precision: 4})
+Vue.use(currency)
 ```
 
-### B. Use as component: https://jsfiddle.net/auom8st8/
+### Example
 
 ```html
 <template>
   <div>
-    <money v-model="price" v-bind="money"></money> {{price}}
+    <v-currency-field label="Value" v-bind="currency_config" :error-messages="errors.price" v-model="price"></v-currency-field>
   </div>
 </template>
 
 <script>
-  import {Money} from 'v-money'
-
   export default {
-    components: {Money},
-
     data () {
       return {
+        errors: {},
         price: 123.45,
-        money: {
+        currency_config: {
           decimal: ',',
           thousands: '.',
           prefix: 'R$ ',
@@ -61,42 +47,9 @@ Vue.use(money, {precision: 4})
 </script>
 ```
 
-### C. Use as directive: https://jsfiddle.net/nj3cLoum/2/
-Must use `vmodel.lazy` to bind works properly.
-```html
-<template>
-  <div>
-    <input v-model.lazy="price" v-money="money" /> {{price}}
-  </div>
-</template>
-
-<script>
-  import {VMoney} from 'v-money'
-
-  export default {
-    data () {
-      return {
-        price: 123.45,
-        money: {
-          decimal: ',',
-          thousands: '.',
-          prefix: 'R$ ',
-          suffix: ' #',
-          precision: 2,
-          masked: false, /* doesn't work with directive */
-          allowBlank: false,
-          min: Number.MIN_SAFE_INTEGER,
-          max: Number.MAX_SAFE_INTEGER
-        }
-      }
-    },
-
-    directives: {money: VMoney}
-  }
-</script>
-```
-
 ## Properties
+
+All v-money properties
 
 | property   | Required | Type    | Default                 | Description                                             |
 |------------|----------|---------|-------------------------|---------------------------------------------------------|
@@ -110,10 +63,33 @@ Must use `vmodel.lazy` to bind works properly.
 | min        | false    | Number  | Number.MIN_SAFE_INTEGER | The min value allowed                                   |
 | max        | false    | Number  | Number.MAX_SAFE_INTEGER | The max value allowed                                   |
 
+And all vuetify properties
+
+| property              | Required | Type      | 
+|-----------------------|----------|-----------|
+| appendOuterIcon       | false    | String    | 
+| appendOuterIconCb     | false    | Function  | 
+| autofocus             | false    | Boolean   | 
+| box                   | false    | Boolean   | 
+| browserAutocomplete   | false    | String    | 
+| clearable             | false    | Boolean   | 
+| clearIcon             | false    | String    | 
+| clearIconCb           | false    | Number    | 
+| color                 | false    | String    | 
+| flat                  | false    | Boolean   | 
+| fullWidth             | false    | Boolean   | 
+| label                 | false    | String    | 
+| outline               | false    | Boolean   | 
+| placeholder           | false    | String    | 
+| prependInnerIcon      | false    | String    | 
+| prependInnerIconCb    | false    | Function  | 
+| reverse               | false    | Boolean   | 
+| singleLine            | false    | Boolean   | 
+| solo                  | false    | Boolean   | 
+| soloInverted          | false    | Boolean   | 
+
+
 ### References
 
-- https://en.wikipedia.org/wiki/Decimal_mark
-- https://docs.oracle.com/cd/E19455-01/806-0169/overview-9/index.html
-- http://www.xe.com/symbols.php
-- https://github.com/kevinongko/vue-numeric
-- https://github.com/plentz/jquery-maskmoney
+- https://github.com/64robots/v-money
+- https://vuetifyjs.com/pt-BR/components/text-fields

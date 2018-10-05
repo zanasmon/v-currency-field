@@ -1,17 +1,43 @@
 <template lang="html">
-  <input type="tel"
+  <v-text-field
+         :class="`${classes}`"
          :value="formattedValue"
-         @change="change"
-         v-money="{precision, decimal, thousands, prefix, suffix, allowBlank, min, max}"
-         :class="className"
+         :prefix="prefix"
+         :suffix="suffix"
+         :appendOuterIcon="appendOuterIcon"
+         :appendOuterIconCb="appendOuterIconCb"
+         :autofocus="autofocus"
+         :box="box"
+         :browserAutocomplete="browserAutocomplete"
+         :clearable="clearable"
+         :clearIcon="clearIcon"
+         :clearIconCb="clearIconCb"
+         :color="color"
+         :counter="counter"
+         :flat="flat"
+         :fullWidth="fullWidth"
+         :label="label"
+         :outline="outline"
          :placeholder="placeholder"
-         :id="id"
-         :maxlength="maxlength"
-         @blur="$emit('blur')" />
+         :prependInnerIcon="prependInnerIcon"
+         :prependInnerIconCb="prependInnerIconCb"
+         :reverse="reverse"
+         :singleLine="singleLine"
+         :solo="solo"
+         :soloInverted="soloInverted"
+         type="tel"
+         @change="change"
+         v-currency="{precision, decimal, thousands}"/>
 </template>
 
+<style>
+.padding-prefix input {
+  padding-left: 8px !important;
+}
+</style>
+
 <script>
-import money from './directive'
+import currency from './directive'
 import defaults from './options'
 import {format, unformat} from './utils'
 
@@ -22,20 +48,6 @@ export default {
       required: true,
       type: [Number, String],
       default: 0
-    },
-    class: {
-      type: String,
-      default: 'v-money'
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    id: {
-      type: String
-    },
-    maxlength: {
-      type: Number
     },
     masked: {
       type: Boolean,
@@ -61,34 +73,57 @@ export default {
       type: String,
       default: () => defaults.suffix
     },
-    allowBlank: {
-      type: Boolean,
-      default: () => defaults.allowBlank
+    appendOuterIcon: String,
+    appendOuterIconCb: Function,
+    autofocus: Boolean,
+    box: Boolean,
+    browserAutocomplete: String,
+    clearable: Boolean,
+    clearIcon: {
+      type: String,
+      default: '$vuetify.icons.clear'
     },
-    max: {
-      type: Number,
-      default: () => defaults.max
+    clearIconCb: Function,
+    color: {
+      type: String,
+      default: 'primary'
     },
-    min: {
-      type: Number,
-      default: () => defaults.min
-    }
+    counter: [Boolean, Number, String],
+    flat: Boolean,
+    fullWidth: Boolean,
+    label: String,
+    outline: Boolean,
+    placeholder: String,
+    prependInnerIcon: String,
+    prependInnerIconCb: Function,
+    reverse: Boolean,
+    singleLine: Boolean,
+    solo: Boolean,
+    soloInverted: Boolean
   },
 
-  directives: {money},
-
-  computed: {
-    className() {
-      return this.class;
-    }
-  },
+  directives: {currency},
 
   data () {
     return {
       formattedValue: ''
     }
   },
+  computed: {
+    classes () {
+      const classes = {
+        'padding-prefix': this.prefix,
+      }
 
+      let classString = "";
+      for (let key in classes) {
+        if (classes[key]) {
+          classString += `${key} `
+        }
+      }
+      return classString;
+    }
+  },
   watch: {
     value: {
       immediate: true,
@@ -102,8 +137,8 @@ export default {
   },
 
   methods: {
-    change (evt) {
-      this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
+    change (newVal) {
+      this.$emit('input', this.masked ? newVal : unformat(newVal, this.precision))
     }
   }
 }

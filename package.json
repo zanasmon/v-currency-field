@@ -1,8 +1,8 @@
 {
-  "name": "v-money",
-  "version": "0.8.2",
+  "name": "v-currency-field",
+  "version": "1.0.0",
   "description": "Vue currency input/directive mask",
-  "main": "dist/v-money.js",
+  "main": "dist/v-currency-field.js",
   "scripts": {
     "size": "size-limit",
     "upgrade:check": "ncu",
@@ -27,11 +27,11 @@
   ],
   "size-limit": [
     {
-      "path": "dist/v-money.js",
+      "path": "dist/v-currency-field.js",
       "limit": "1.6 KB"
     }
   ],
-  "author": "Marcos Neves <marcos.neves@gmail.com> (https://vuejs-tips.github.io/)",
+  "author": "Marcos Neves <marcos.neves@gmail.com> (https://vuejs-tips.github.io/) with adpations for vuetify by Philipe Augusto <phiny1@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-jest": "^21.2.0",
