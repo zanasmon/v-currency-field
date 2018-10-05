@@ -16,8 +16,8 @@ function install (Vue, globalOptions) {
       options[key] = globalOptions[key]
     })
   }
-  Vue.directive('money', VMoney)
-  Vue.component('money', Money)
+  Vue.directive('currency', VMoney)
+  Vue.component('v-currency-field', Money)
 }
 
 export default install
