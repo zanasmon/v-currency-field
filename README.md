@@ -67,28 +67,38 @@ All v-money properties
 
 And all vuetify properties
 
-| property              | Required | Type      | 
-|-----------------------|----------|-----------|
-| appendOuterIcon       | false    | String    | 
-| appendOuterIconCb     | false    | Function  | 
-| autofocus             | false    | Boolean   | 
-| box                   | false    | Boolean   | 
-| browserAutocomplete   | false    | String    | 
-| clearable             | false    | Boolean   | 
-| clearIcon             | false    | String    | 
-| clearIconCb           | false    | Number    | 
-| color                 | false    | String    | 
-| flat                  | false    | Boolean   | 
-| fullWidth             | false    | Boolean   | 
-| label                 | false    | String    | 
-| outline               | false    | Boolean   | 
-| placeholder           | false    | String    | 
-| prependInnerIcon      | false    | String    | 
-| prependInnerIconCb    | false    | Function  | 
-| reverse               | false    | Boolean   | 
-| singleLine            | false    | Boolean   | 
-| solo                  | false    | Boolean   | 
-| soloInverted          | false    | Boolean   | 
+| property              | Required | Type      |  Observation        |
+|-----------------------|----------|-----------| --------------------|
+| appendOuterIcon       | false    | String    |                     |
+| appendOuterIconCb     | false    | Function  | deprecated          |
+| @click:append-outer   | false    | Function  | Not Working         |
+| autofocus             | false    | Boolean   |                     |
+| box                   | false    | Boolean   |                     |
+| browserAutocomplete   | false    | String    | Not Tested          |
+| clearable             | false    | Boolean   | Not Working Event   |
+| clearIcon             | false    | String    |                     |
+| clearIconCb           | false    | Number    | deprecated          |
+| @click:clear          | false    | Number    | Not Working         |
+| color                 | false    | String    |                     |
+| flat                  | false    | Boolean   |                     |
+| fullWidth             | false    | Boolean   |                     |
+| label                 | false    | String    |                     |
+| outline               | false    | Boolean   |                     |
+| prependInnerIcon      | false    | String    |                     |
+| prependInnerIconCb    | false    | Function  | deprecated          |
+| @click:prepend-inner  | false    | Function  | Not Working         |
+| reverse               | false    | Boolean   |                     |
+| singleLine            | false    | Boolean   |                     |
+| solo                  | false    | Boolean   |                     |
+| soloInverted          | false    | Boolean   |                     |
+| error-messages        | false    | []        |                     |
+| disabled              | false    | Boolean   |                     |
+| readonly              | false    | Boolean   |                     |
+| dark                  | false    | Boolean   |                     |
+| height                | false    | String    |                     |
+| hint                  | false    | String    |                     |
+| light                 | false    | Boolean   |                     |
+| background-color      | false    | String    |                     |
 
 
 ### References

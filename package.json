@@ -14,6 +14,10 @@
     "compile": "npm run build -- --disable-compress",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phiny1/v-currency-field.git"
+  },
   "keywords": [
     "vue",
     "input",
