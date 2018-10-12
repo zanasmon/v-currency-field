@@ -26,14 +26,21 @@
          :singleLine="singleLine"
          :solo="solo"
          :soloInverted="soloInverted"
-         :error-messages="error-messages"
+         :error-messages="errorMessages"
          :dark="dark"
          :height="height"
          :disabled="disabled"
          :readonly="readonly"
          :hint="hint"
          :light="light"
-         :background-color="background-color"
+         :background-color="backgroundColor"
+         :error="error"
+         :errorCount="errorCount"
+         :messages="messages"
+         :rules="rules"
+         :success="success"
+         :successMessages="successMessages"
+         :validateOnBlur="validateOnBlur"
          type="tel"
          @change="change"
          v-currency="{precision, decimal, thousands}"/>
@@ -108,7 +115,37 @@ export default {
     reverse: Boolean,
     singleLine: Boolean,
     solo: Boolean,
-    soloInverted: Boolean
+    soloInverted: Boolean,
+    dark: Boolean,
+    disabled: Boolean,
+    readonly: Boolean,
+    light: Boolean,
+    height: String,
+    backgroundColor: String,
+    hint: String,
+    error: Boolean,
+    errorCount: {
+      type: [Number, String],
+      default: 1
+    },
+    errorMessages: {
+      type: [String, Array],
+      default: () => []
+    },
+    messages: {
+      type: [String, Array],
+      default: () => []
+    },
+    rules: {
+      type: Array,
+      default: () => []
+    },
+    success: Boolean,
+    successMessages: {
+      type: [String, Array],
+      default: () => []
+    },
+    validateOnBlur: Boolean
   },
 
   directives: {currency},
