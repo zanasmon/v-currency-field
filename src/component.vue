@@ -32,6 +32,7 @@
          :disabled="disabled"
          :readonly="readonly"
          :hint="hint"
+         :persistentHint="persistentHint"
          :light="light"
          :background-color="backgroundColor"
          :error="error"
@@ -123,6 +124,7 @@ export default {
     height: String,
     backgroundColor: String,
     hint: String,
+    persistentHint: String,
     error: Boolean,
     errorCount: {
       type: [Number, String],
