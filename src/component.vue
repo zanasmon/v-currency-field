@@ -1,6 +1,7 @@
 <template lang="html">
   <v-text-field
          ref="textfield"
+         :tabindex="tabindex"
          :class="`${classes}`"
          :value="formattedValue"
          :prefix="prefix"
@@ -147,7 +148,8 @@ export default {
       type: [String, Array],
       default: () => []
     },
-    validateOnBlur: Boolean
+    validateOnBlur: Boolean,
+    tabindex: String
   },
 
   directives: {currency},
